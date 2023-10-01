@@ -1,0 +1,15 @@
+[gd_scene load_steps=2 format=3 uid="uid://i6xw5pvk2r4u"]
+
+[ext_resource type="Texture2D" uid="uid://qx4am37vvnxl" path="res://asset/sprite/node.png" id="1_nm4n1"]
+
+[node name="PathFollow2D" type="PathFollow2D"]
+position = Vector2(0, -42)
+rotation = 0.321751
+
+[node name="51239" type="Timer" parent="."]
+wait_time = 0.2
+one_shot = true
+
+[node name="Sprite" type="Sprite2D" parent="."]
+visible = false
+texture = ExtResource("1_nm4n1")

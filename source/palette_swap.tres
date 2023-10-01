@@ -1,0 +1,30 @@
+[gd_resource type="ShaderMaterial" load_steps=2 format=3 uid="uid://cyix6ooie3jh7"]
+
+[sub_resource type="Shader" id="1"]
+code = "shader_type canvas_item;
+
+uniform float seed;
+
+float rand(vec2 co){
+  return fract(sin(dot(co.xy ,vec2(12.9898,78.233))) * 43758.5453);
+}
+
+void fragment() {
+    vec4 curr_color = texture(TEXTURE,UV); // Get current color of pixel
+	vec4 new_color = vec4(1,1,1,1);
+	if (seed > 0.f) {
+			new_color = vec4(rand(vec2(seed,seed)),rand(vec2(100.0f+seed,100.0f+seed)),rand(vec2(200.0f+seed,200.0f+seed)),1);
+	}
+	
+	int part_to_max = int(floor(rand(vec2(seed,seed)) * 3.f));
+	
+    if (curr_color == vec4(1,1,1,1)){
+        COLOR = new_color;
+    }else{
+        COLOR = curr_color;
+	}
+}"
+
+[resource]
+shader = SubResource("1")
+shader_parameter/seed = null

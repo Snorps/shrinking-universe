@@ -1,0 +1,11 @@
+res://default_env.tres::004e3a72e2a91f14f933f643132e75e7::1696190031::res://.godot/exported/133200997/export-7cf3fd67ad9f55210191d77b582b8209-default_env.res
+res://palette_swap.tres::e5d0f3d9e96fa90dec39fe240341d4f3::1696188111::res://.godot/exported/133200997/export-cf44796fb361d3e0a38be750ab71c08f-palette_swap.res
+res://tile_set.tres::eb99515853a76c37a1b9459c05c75908::1696188971::res://.godot/exported/133200997/export-7c27897959bc14bba6cecc7024081810-tile_set.res
+res://scene/bird.tscn::c6d0d02156201aaac5ddc54f0342f541::1696190031::res://.godot/exported/133200997/export-645a1af92c343c5b7e788d1498b6584d-bird.scn
+res://scene/Player.tscn::2d91364d6a840256ed6926bdd482fc18::1696190030::res://.godot/exported/133200997/export-9f82e9abc930209ed28c98f61bb179e0-Player.scn
+res://scene/shrinking_box.tscn::908ce3c18c0180ec4ea92777b1b1b1fa::1696190030::res://.godot/exported/133200997/export-d4057d897324c73498fc69783acb5824-shrinking_box.scn
+res://scene/coin.tscn::e816eeeae75256addea7e55bdfd93106::1696190031::res://.godot/exported/133200997/export-f97f6790cbe8e173de6462cdbb9708f2-coin.scn
+res://scene/game.tscn::914f6b520b773c3788564cc7b794777f::1696190031::res://.godot/exported/133200997/export-caa10c3bd03e8ed3318171f5303f6366-game.scn
+res://scene/path_follow_2d.tscn::bca4d39c62aba212d3eb023f061f2a73::1696190031::res://.godot/exported/133200997/export-f87f7d7536f398d317de17d6f9fe7609-path_follow_2d.scn
+res://scene/reset.tscn::3de9e674ed96b6853fa120213cdc0b9d::1696190031::res://.godot/exported/133200997/export-27b3e28c01f9e8a92572ce2f935ef6ac-reset.scn
+res://scene/title.tscn::dfcc8749dcf9cbefc49ac38af20ede5e::1696190031::res://.godot/exported/133200997/export-c70c5591bff2d3cad3d9de0b5a32ae3d-title.scn

@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://dku54dg05u8er"]
+
+[ext_resource type="Script" path="res://script/scene/reset.gd" id="1_70dsj"]
+[ext_resource type="Texture2D" uid="uid://b5cupxasgjimt" path="res://asset/sprite/kitty.png" id="2_kmsuc"]
+
+[node name="Reset" type="Node2D"]
+script = ExtResource("1_70dsj")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(166, 89)
+texture = ExtResource("2_kmsuc")

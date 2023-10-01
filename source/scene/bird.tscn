@@ -1,0 +1,73 @@
+[gd_scene load_steps=11 format=3 uid="uid://dxsjl4hes8jrm"]
+
+[ext_resource type="Script" path="res://script/scene/bird.gd" id="1_dqp8a"]
+[ext_resource type="Texture2D" uid="uid://dl4mdavpy3ksc" path="res://asset/sprite/birdsheet.png" id="1_ggkbh"]
+[ext_resource type="Material" uid="uid://cyix6ooie3jh7" path="res://palette_swap.tres" id="2_7r0i2"]
+[ext_resource type="Script" path="res://script/palette_swap.gd" id="3_0pmyl"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tf0hp"]
+atlas = ExtResource("1_ggkbh")
+region = Rect2(27, 0, 27, 27)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_flifm"]
+atlas = ExtResource("1_ggkbh")
+region = Rect2(0, 0, 27, 27)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ltxgj"]
+atlas = ExtResource("1_ggkbh")
+region = Rect2(54, 0, 27, 27)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_oqgb4"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tf0hp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_flifm")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ltxgj")
+}],
+"loop": true,
+"name": &"dive",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1h838"]
+size = Vector2(21, 7)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5jseo"]
+size = Vector2(8, 12)
+
+[node name="Bird" type="Node2D"]
+script = ExtResource("1_dqp8a")
+
+[node name="Sprite" type="AnimatedSprite2D" parent="."]
+material = ExtResource("2_7r0i2")
+sprite_frames = SubResource("SpriteFrames_oqgb4")
+script = ExtResource("3_0pmyl")
+
+[node name="DieBox" type="Area2D" parent="Sprite"]
+collision_layer = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Sprite/DieBox"]
+position = Vector2(-1.5, -7.5)
+shape = SubResource("RectangleShape2D_1h838")
+
+[node name="KillBox" type="Area2D" parent="Sprite"]
+collision_layer = 3
+collision_mask = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Sprite/KillBox"]
+position = Vector2(-8, 2)
+shape = SubResource("RectangleShape2D_5jseo")
+
+[connection signal="area_entered" from="Sprite/DieBox" to="." method="_on_die_box_area_entered"]
+[connection signal="body_entered" from="Sprite/DieBox" to="." method="_on_die_box_body_entered"]
+[connection signal="area_entered" from="Sprite/KillBox" to="." method="_on_kill_box_area_entered"]

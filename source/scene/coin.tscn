@@ -1,0 +1,64 @@
+[gd_scene load_steps=11 format=3 uid="uid://c7ovkmtilkmmy"]
+
+[ext_resource type="Script" path="res://script/scene/coin.gd" id="1_0113d"]
+[ext_resource type="Material" uid="uid://cyix6ooie3jh7" path="res://palette_swap.tres" id="2_4exwk"]
+[ext_resource type="Texture2D" uid="uid://ve0f1fnugycp" path="res://asset/sprite/coinsmallsheet.png" id="2_a6hik"]
+[ext_resource type="Script" path="res://script/palette_swap.gd" id="4_6iktq"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_88qvw"]
+radius = 1.5
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kw6yj"]
+atlas = ExtResource("2_a6hik")
+region = Rect2(3, 0, 3, 3)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_j6xl4"]
+atlas = ExtResource("2_a6hik")
+region = Rect2(0, 0, 3, 3)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_6o3hp"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kw6yj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_j6xl4")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_njtde"]
+radius = 2.23607
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ogopw"]
+radius = 1.0
+
+[node name="Coin" type="RigidBody2D"]
+position = Vector2(44, 132)
+collision_layer = 4
+lock_rotation = true
+script = ExtResource("1_0113d")
+
+[node name="Shape" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_88qvw")
+
+[node name="Sprite" type="AnimatedSprite2D" parent="."]
+material = ExtResource("2_4exwk")
+sprite_frames = SubResource("SpriteFrames_6o3hp")
+script = ExtResource("4_6iktq")
+
+[node name="HitBox" type="Area2D" parent="."]
+
+[node name="Shape" type="CollisionShape2D" parent="HitBox"]
+shape = SubResource("CircleShape2D_njtde")
+
+[node name="CrushBox" type="Area2D" parent="."]
+position = Vector2(0, -1)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CrushBox"]
+shape = SubResource("CircleShape2D_ogopw")
+
+[connection signal="area_entered" from="HitBox" to="." method="_on_hit_box_area_entered"]

@@ -1,0 +1,196 @@
+[gd_scene load_steps=20 format=3 uid="uid://djb2vrskknn3t"]
+
+[ext_resource type="Script" path="res://script/scene/game.gd" id="1_yt6n7"]
+[ext_resource type="Material" uid="uid://cyix6ooie3jh7" path="res://palette_swap.tres" id="2_7aqkl"]
+[ext_resource type="AudioStream" uid="uid://dspodtxfa43pq" path="res://asset/sound/music.mp3" id="2_86fay"]
+[ext_resource type="Script" path="res://script/palette_swap.gd" id="3_gh47p"]
+[ext_resource type="TileSet" uid="uid://doqmkf42b2abk" path="res://tile_set.tres" id="3_mvarf"]
+[ext_resource type="PackedScene" uid="uid://dw27rfdkigqes" path="res://scene/Player.tscn" id="4_ci2al"]
+[ext_resource type="PackedScene" uid="uid://bmpoy5px07v5t" path="res://scene/shrinking_box.tscn" id="5_u57hl"]
+[ext_resource type="PackedScene" uid="uid://dxsjl4hes8jrm" path="res://scene/bird.tscn" id="6_8ol0k"]
+[ext_resource type="FontFile" uid="uid://d23lots231ud7" path="res://asset/font/m3x6.ttf" id="6_67x44"]
+[ext_resource type="FontFile" uid="uid://c5jhd0d7ken52" path="res://asset/font/m5x7.ttf" id="6_me8fw"]
+[ext_resource type="Script" path="res://script/scene/score.gd" id="6_p63s4"]
+[ext_resource type="AudioStream" uid="uid://b7fjekmmnq0jr" path="res://asset/sound/death.mp3" id="8_jr3se"]
+[ext_resource type="AudioStream" uid="uid://dmplqak4fctbm" path="res://asset/sound/hit.mp3" id="9_7o0fp"]
+[ext_resource type="AudioStream" uid="uid://bn0i8xwg1s5de" path="res://asset/sound/drop.mp3" id="11_p5jt7"]
+[ext_resource type="AudioStream" uid="uid://bnbfu6wbnejcl" path="res://asset/sound/dive.mp3" id="13_mfitn"]
+[ext_resource type="AudioStream" uid="uid://dmj3gtw3tbgkr" path="res://asset/sound/jump.mp3" id="14_q48w3"]
+[ext_resource type="AudioStream" uid="uid://ckvk36o2wmedk" path="res://asset/sound/pickup.mp3" id="15_m2fbq"]
+[ext_resource type="Script" path="res://script/scene/game_over_screen.gd" id="16_dlk0r"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1t2hj"]
+bg_color = Color(0, 0, 0, 1)
+
+[node name="Game" type="Node2D"]
+script = ExtResource("1_yt6n7")
+
+[node name="Tilemap" type="TileMap" parent="."]
+material = ExtResource("2_7aqkl")
+tile_set = ExtResource("3_mvarf")
+format = 2
+layer_0/enabled = false
+layer_0/tile_data = PackedInt32Array(786437, 0, 0, 786438, 1, 0, 786439, 1, 0, 786440, 1, 0, 786441, 1, 0, 786456, 0, 0, 786457, 1, 0, 786458, 1, 0, 786459, 1, 0, 786460, 1, 0, 851974, 2, 0, 851975, 2, 0, 851976, 2, 0, 851977, 2, 0, 851993, 2, 0, 851994, 2, 0, 851995, 2, 0, 851996, 2, 0, 1048576, 1, 0, 1048577, 1, 0, 1048578, 1, 0, 1048579, 1, 0, 1048580, 1, 0, 1048581, 1, 0, 1048582, 1, 0, 1048583, 1, 0, 1048584, 1, 0, 1048585, 1, 0, 1048586, 1, 0, 1048587, 1, 0, 1048588, 1, 0, 1048589, 1, 0, 1048590, 1, 0, 1048591, 1, 0, 1048592, 1, 0, 1048593, 1, 0, 1048594, 1, 0, 1048595, 1, 0, 1048596, 1, 0, 1048597, 1, 0, 1048598, 1, 0, 1048599, 1, 0, 1048600, 1, 0, 1048601, 1, 0, 1048602, 1, 0, 1048603, 1, 0, 1048604, 1, 0, 1048605, 1, 0, 1048606, 1, 0, 1048607, 1, 0, 1048608, 1, 0, 1048609, 1, 0, 1048610, 1, 0, 1048611, 1, 0, 1114112, 2, 0, 1114113, 2, 0, 1114114, 2, 0, 1114115, 2, 0, 1114116, 2, 0, 1114117, 2, 0, 1114118, 2, 0, 1114119, 2, 0, 1114120, 2, 0, 1114121, 2, 0, 1114122, 2, 0, 1114123, 2, 0, 1114124, 2, 0, 1114125, 2, 0, 1114126, 2, 0, 1114127, 2, 0, 1114128, 2, 0, 1114129, 2, 0, 1114130, 2, 0, 1114131, 2, 0, 1114132, 2, 0, 1114133, 2, 0, 1114134, 2, 0, 1114135, 2, 0, 1114136, 2, 0, 1114137, 2, 0, 1114138, 2, 0, 1114139, 2, 0, 1114140, 2, 0, 1114141, 2, 0, 1114142, 2, 0, 1114143, 2, 0, 1114144, 2, 0, 1114145, 2, 0, 1114146, 2, 0, 1114147, 2, 0, 1179648, 2, 0, 1179649, 2, 0, 1179650, 2, 0, 1179651, 2, 0, 1179652, 2, 0, 1179653, 2, 0, 1179654, 2, 0, 1179655, 2, 0, 1179656, 2, 0, 1179657, 2, 0, 1179658, 2, 0, 1179659, 2, 0, 1179660, 2, 0, 1179661, 2, 0, 1179662, 2, 0, 1179663, 2, 0, 1179664, 2, 0, 1179665, 2, 0, 1179666, 2, 0, 1179667, 2, 0, 1179668, 2, 0, 1179669, 2, 0, 1179670, 2, 0, 1179671, 2, 0, 1179672, 2, 0, 1179673, 2, 0, 1179674, 2, 0, 1179675, 2, 0, 1179676, 2, 0, 1179677, 2, 0, 1179678, 2, 0, 1179679, 2, 0, 1179680, 2, 0, 1179681, 2, 0, 1179682, 2, 0, 1179683, 2, 0, 1245184, 2, 0, 1245185, 2, 0, 1245186, 2, 0, 1245187, 2, 0, 1245188, 2, 0, 1245189, 2, 0, 1245190, 2, 0, 1245191, 2, 0, 1245192, 2, 0, 1245193, 2, 0, 1245194, 2, 0, 1245195, 2, 0, 1245196, 2, 0, 1245197, 2, 0, 1245198, 2, 0, 1245199, 2, 0, 1245200, 2, 0, 1245201, 2, 0, 1245202, 2, 0, 1245203, 2, 0, 1245204, 2, 0, 1245205, 2, 0, 1245206, 2, 0, 1245207, 2, 0, 1245208, 2, 0, 1245209, 2, 0, 1245210, 2, 0, 1245211, 2, 0, 1245212, 2, 0, 1245213, 2, 0, 1245214, 2, 0, 1245215, 2, 0, 1245216, 2, 0, 1245217, 2, 0, 1245218, 2, 0, 1245219, 2, 0, 786442, 1, 0, 851978, 2, 0, 786443, 0, 327680, 786461, 0, 327680, 524303, 0, 0, 524304, 2, 0, 524305, 1, 0, 524306, 1, 0, 589842, 2, 0, 589843, 2, 0, 524308, 0, 327680, 524307, 1, 0, 589844, 2, 0, 589841, 2, 0, 589840, 2, 0, 589839, 2, 0, 327693, 2, 0, 327694, 2, 0, 327695, 2, 0, 327696, 2, 0, 327699, 2, 0, 327700, 2, 0, 327701, 2, 0, 327702, 2, 0, 262166, 0, 0, 262167, 0, 327680, 262165, 0, 0, 262164, 0, 0, 262163, 0, 0, 262160, 0, 327680, 262159, 0, 0, 262158, 0, 0, 262157, 0, 0, 262156, 0, 0)
+layer_1/name = ""
+layer_1/enabled = true
+layer_1/modulate = Color(1, 1, 1, 1)
+layer_1/y_sort_enabled = false
+layer_1/y_sort_origin = 0
+layer_1/z_index = 0
+layer_1/tile_data = PackedInt32Array(1245218, 2, 0, 1245219, 2, 0, 1179683, 2, 0, 1179666, 2, 0, 1179648, 2, 0, 1245184, 2, 0, 1245185, 2, 0, 1245186, 2, 0, 1245187, 2, 0, 1245188, 2, 0, 1245189, 2, 0, 1245190, 2, 0, 1245191, 2, 0, 1245192, 2, 0, 1245193, 2, 0, 1245194, 2, 0, 1245195, 2, 0, 1245196, 2, 0, 1245197, 2, 0, 1245198, 2, 0, 1245199, 2, 0, 1245200, 2, 0, 1245201, 2, 0, 1245202, 2, 0, 1245203, 2, 0, 1245204, 2, 0, 1245205, 2, 0, 1245206, 2, 0, 1245207, 2, 0, 1245208, 2, 0, 1245209, 2, 0, 1245210, 2, 0, 1245211, 2, 0, 1245212, 2, 0, 1245213, 2, 0, 1245214, 2, 0, 1245215, 2, 0, 1245216, 2, 0, 1245217, 2, 0, 1179682, 2, 0, 1179681, 2, 0, 1179680, 2, 0, 1179679, 2, 0, 1179678, 2, 0, 1179677, 2, 0, 1179676, 2, 0, 1179675, 2, 0, 1179674, 2, 0, 1179673, 2, 0, 1179672, 2, 0, 1179671, 2, 0, 1179670, 2, 0, 1179669, 2, 0, 1179668, 2, 0, 1179667, 2, 0, 1179665, 2, 0, 1179664, 2, 0, 1179663, 2, 0, 1179662, 2, 0, 1179661, 2, 0, 1179660, 2, 0, 1179659, 2, 0, 1179658, 2, 0, 1179657, 2, 0, 1179656, 2, 0, 1179655, 2, 0, 1179654, 2, 0, 1179653, 2, 0, 1179652, 2, 0, 1179651, 2, 0, 1179650, 2, 0, 1179649, 2, 0, 851970, 1, 0, 851971, 1, 0, 851972, 1, 0, 851973, 1, 0, 851974, 2, 0, 851975, 0, 327680, 917507, 2, 0, 917508, 2, 0, 917509, 2, 0, 917510, 2, 0, 917506, 2, 0, 917505, 2, 0, 851969, 1, 0, 851968, 2, 0, 917504, 2, 0, 851981, 0, 0, 917517, 2, 0, 917518, 2, 0, 917519, 2, 0, 917520, 2, 0, 917521, 2, 0, 917522, 2, 0, 917523, 2, 0, 851983, 1, 0, 851982, 1, 0, 851984, 1, 0, 851985, 1, 0, 851986, 1, 0, 851987, 1, 0, 851988, 1, 0, 917534, 2, 0, 917535, 2, 0, 917536, 2, 0, 917537, 2, 0, 917538, 2, 0, 852002, 1, 0, 852001, 1, 0, 852000, 1, 0, 851999, 1, 0, 851998, 2, 0, 851997, 2, 0, 852003, 2, 0, 917539, 2, 0, 917533, 2, 0, 851989, 2, 0, 851990, 2, 0, 851991, 0, 327680, 851996, 0, 0, 524295, 2, 0, 1114147, 2, 0, 1114146, 2, 0, 1114145, 2, 0, 1114144, 2, 0, 1114143, 2, 0, 1114142, 2, 0, 1114138, 2, 0, 1114137, 2, 0, 1114136, 2, 0, 1114135, 2, 0, 1114134, 2, 0, 1114133, 2, 0, 1114132, 2, 0, 1114131, 2, 0, 1114130, 2, 0, 1114129, 2, 0, 1114128, 2, 0, 1114127, 2, 0, 1114126, 2, 0, 1114125, 2, 0, 1114124, 2, 0, 1114123, 2, 0, 1114115, 2, 0, 1114114, 2, 0, 1114113, 2, 0, 1114112, 2, 0, 917526, 2, 0, 917525, 2, 0, 917524, 2, 0, 1114116, 2, 0, 589849, 2, 0, 589850, 2, 0, 524315, 2, 0, 524314, 2, 0, 524313, 2, 0, 524312, 2, 0, 589834, 2, 0, 589833, 2, 0, 589832, 2, 0, 524296, 2, 0, 524297, 2, 0, 524298, 2, 0, 524299, 2, 0, 589848, 2, 0, 524311, 2, 0, 327707, 2, 0, 262171, 0, 0, 262172, 1, 0, 262173, 1, 0, 262174, 0, 327680, 327709, 2, 0, 327708, 2, 0, 327703, 2, 0, 262167, 2, 0, 262166, 1, 0, 262165, 1, 0, 327701, 2, 0, 327702, 2, 0, 262164, 0, 0, 327691, 2, 0, 327692, 2, 0, 262156, 1, 0, 262155, 0, 0, 262157, 1, 0, 327687, 2, 0, 262151, 0, 327680, 262150, 1, 0, 327686, 2, 0, 262149, 1, 0, 262148, 0, 0, 327685, 2, 0, 327693, 2, 0, 262158, 1, 0)
+script = ExtResource("3_gh47p")
+
+[node name="Player" parent="." instance=ExtResource("4_ci2al")]
+position = Vector2(98, 69)
+
+[node name="Shrinking Box" parent="." instance=ExtResource("5_u57hl")]
+material = ExtResource("2_7aqkl")
+position = Vector2(65, 36)
+collision_layer = 2
+
+[node name="Score" type="RichTextLabel" parent="." node_paths=PackedStringArray("player")]
+texture_filter = 1
+material = ExtResource("2_7aqkl")
+offset_left = 2.0
+offset_right = 42.0
+offset_bottom = 40.0
+theme_override_fonts/normal_font = ExtResource("6_me8fw")
+text = "0"
+script = ExtResource("6_p63s4")
+player = NodePath("../Player")
+
+[node name="Sounds" type="Node" parent="."]
+
+[node name="Music" type="AudioStreamPlayer2D" parent="Sounds"]
+stream = ExtResource("2_86fay")
+autoplay = true
+
+[node name="StompSound" type="AudioStreamPlayer2D" parent="Sounds"]
+stream = ExtResource("9_7o0fp")
+volume_db = 5.0
+
+[node name="DropSound" type="AudioStreamPlayer2D" parent="Sounds"]
+stream = ExtResource("11_p5jt7")
+volume_db = 5.0
+
+[node name="GameOverSound" type="AudioStreamPlayer2D" parent="Sounds"]
+position = Vector2(2, 0)
+stream = ExtResource("8_jr3se")
+
+[node name="DiveSound" type="AudioStreamPlayer2D" parent="Sounds"]
+stream = ExtResource("13_mfitn")
+volume_db = 5.0
+
+[node name="JumpSound" type="AudioStreamPlayer2D" parent="Sounds"]
+stream = ExtResource("14_q48w3")
+volume_db = 5.0
+
+[node name="PickupSound" type="AudioStreamPlayer2D" parent="Sounds"]
+stream = ExtResource("15_m2fbq")
+volume_db = 0.3
+
+[node name="GameOverScreen" type="CanvasLayer" parent="."]
+visible = false
+script = ExtResource("16_dlk0r")
+
+[node name="MainPanel" type="Panel" parent="GameOverScreen"]
+offset_left = 99.0
+offset_top = 30.0
+offset_right = 226.0
+offset_bottom = 113.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_1t2hj")
+
+[node name="GameOverLabel" type="RichTextLabel" parent="GameOverScreen/MainPanel"]
+texture_filter = 1
+material = ExtResource("2_7aqkl")
+layout_mode = 2
+offset_left = 3.0
+offset_top = 7.0
+offset_right = 126.0
+offset_bottom = 53.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/normal_font = ExtResource("6_me8fw")
+bbcode_enabled = true
+text = "[center]Game Over[/center]"
+fit_content = true
+script = ExtResource("3_gh47p")
+
+[node name="ScoreLabel" type="RichTextLabel" parent="GameOverScreen/MainPanel"]
+texture_filter = 1
+material = ExtResource("2_7aqkl")
+layout_mode = 0
+offset_left = 3.0
+offset_top = 19.0
+offset_right = 127.0
+offset_bottom = 53.0
+theme_override_fonts/normal_font = ExtResource("6_me8fw")
+bbcode_enabled = true
+text = "[center]You scored[/center]"
+fit_content = true
+script = ExtResource("3_gh47p")
+
+[node name="PlayAgainLabel" type="RichTextLabel" parent="GameOverScreen/MainPanel"]
+visible = false
+texture_filter = 1
+material = ExtResource("2_7aqkl")
+layout_mode = 0
+offset_left = 1.0
+offset_top = 47.0
+offset_right = 128.0
+offset_bottom = 69.0
+theme_override_fonts/normal_font = ExtResource("6_me8fw")
+bbcode_enabled = true
+text = "[center]Press any key to play again.[/center]"
+fit_content = true
+script = ExtResource("3_gh47p")
+
+[node name="Credits" type="Panel" parent="GameOverScreen"]
+offset_left = 8.0
+offset_top = 129.0
+offset_right = 101.0
+offset_bottom = 176.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_1t2hj")
+
+[node name="Label" type="RichTextLabel" parent="GameOverScreen/Credits"]
+texture_filter = 1
+material = ExtResource("2_7aqkl")
+layout_mode = 0
+offset_left = 3.0
+offset_top = 1.0
+offset_right = 89.0
+offset_bottom = 45.0
+theme_override_fonts/normal_font = ExtResource("6_67x44")
+bbcode_enabled = true
+text = "[center]Credits:[/center]
+Snorps - Game
+Daniel Lissen - Fonts"
+fit_content = true
+script = ExtResource("3_gh47p")
+
+[node name="Credits2" type="Panel" parent="GameOverScreen"]
+offset_left = 223.0
+offset_top = 127.0
+offset_right = 316.0
+offset_bottom = 174.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_1t2hj")
+
+[node name="Label" type="RichTextLabel" parent="GameOverScreen/Credits2"]
+texture_filter = 1
+material = ExtResource("2_7aqkl")
+layout_mode = 0
+offset_left = 5.0
+offset_top = 1.0
+offset_right = 91.0
+offset_bottom = 45.0
+theme_override_fonts/normal_font = ExtResource("6_67x44")
+bbcode_enabled = true
+text = "[center]Tools:[/center]
+Godot, Aseprite, LMMS, VCV Rack"
+fit_content = true
+script = ExtResource("3_gh47p")
+
+[node name="Bird" parent="." instance=ExtResource("6_8ol0k")]
+position = Vector2(159, 144)
+
+[connection signal="visibility_changed" from="GameOverScreen" to="GameOverScreen" method="_on_visibility_changed"]

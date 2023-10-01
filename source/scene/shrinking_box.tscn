@@ -1,0 +1,54 @@
+[gd_scene load_steps=9 format=3 uid="uid://bmpoy5px07v5t"]
+
+[ext_resource type="Texture2D" uid="uid://blou4i7p7x25c" path="res://asset/sprite/shrinking_box.png" id="1_35wtm"]
+[ext_resource type="Script" path="res://script/scene/shrinking_box.gd" id="1_723r2"]
+[ext_resource type="Material" uid="uid://cyix6ooie3jh7" path="res://palette_swap.tres" id="2_vyfsx"]
+[ext_resource type="Script" path="res://script/palette_swap.gd" id="4_1s5rb"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0jev8"]
+size = Vector2(27, 9)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_w3j2h"]
+size = Vector2(27, 9)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lkjyw"]
+size = Vector2(9, 9)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jv3a2"]
+size = Vector2(9, 9)
+
+[node name="Body" type="AnimatableBody2D"]
+sync_to_physics = false
+script = ExtResource("1_723r2")
+
+[node name="ShapeTop" type="CollisionShape2D" parent="."]
+position = Vector2(13.5, 4.5)
+shape = SubResource("RectangleShape2D_0jev8")
+
+[node name="ShapeBottom" type="CollisionShape2D" parent="."]
+position = Vector2(13.5, 22.5)
+shape = SubResource("RectangleShape2D_w3j2h")
+
+[node name="ShapeLeft" type="CollisionShape2D" parent="."]
+position = Vector2(4.5, 13.5)
+shape = SubResource("RectangleShape2D_lkjyw")
+
+[node name="ShapeRight" type="CollisionShape2D" parent="."]
+position = Vector2(22.5, 13.5)
+shape = SubResource("RectangleShape2D_jv3a2")
+
+[node name="Patch" type="NinePatchRect" parent="."]
+material = ExtResource("2_vyfsx")
+offset_right = 27.0
+offset_bottom = 27.0
+texture = ExtResource("1_35wtm")
+draw_center = false
+patch_margin_left = 9
+patch_margin_top = 9
+patch_margin_right = 9
+patch_margin_bottom = 9
+axis_stretch_horizontal = 1
+axis_stretch_vertical = 1
+script = ExtResource("4_1s5rb")
+
+[node name="Node2D" type="Node2D" parent="."]

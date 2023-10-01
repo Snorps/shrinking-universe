@@ -1,0 +1,16 @@
+res://default_env.tres
+res://scene/game.tscn
+res://script/scene/bird.gd
+res://script/scene/coin.gd
+res://script/scene/score.gd
+res://palette_swap.tres
+res://tile_set.tres
+res://scene/Player.tscn
+res://scene/shrinking_box.tscn
+res://scene/bird.tscn
+res://scene/path_follow_2d.tscn
+res://scene/coin.tscn
+res://scene/reset.tscn
+res://script/scene/title.gd
+res://scene/title.tscn
+res://script/scene/game_over_screen.gd
