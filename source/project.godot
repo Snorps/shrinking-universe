@@ -30,6 +30,10 @@ window/stretch/aspect="keep_height"
 
 project/assembly_name="ludum_dare_54"
 
+[editor]
+
+movie_writer/movie_file="C:/dev/snorps/godot/shrinking-universe/rec/movie.avi"
+
 [global]
 
 resolution=false

@@ -67,7 +67,7 @@ func _process(delta):
 				$Sprite.scale.x = 1
 			
 			var posdiff = abs(position.x - player.position.x) - abs(position.y - player.position.y)
-			if posdiff < 5 and position.y < player.position.y and position.y > 0:
+			if posdiff < 5 and position.y < player.position.y and position.y > 0 and position.x > 0 and position.x <320:
 				$Sprite.play("dive")
 				state = "preparing"
 				state_frames = 50

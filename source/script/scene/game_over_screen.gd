@@ -13,7 +13,7 @@ func _process(delta):
 	$MainPanel/ScoreLabel.text = "[center]Your score is: " + str(score) + "[/center]"
 	if visible and not visible_frames == -1:
 		visible_frames += 1 
-		if visible_frames >= 120:
+		if visible_frames >= 60:
 			#get_tree().root.get_node("Game/Sounds/CoinSound").play()
 			$MainPanel.get_node("PlayAgainLabel").visible = true
 			visible_frames = -1
